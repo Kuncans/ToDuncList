@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		524CC29F27A2121000CB2D39 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524CC29E27A2121000CB2D39 /* ListViewModel.swift */; };
 		52EB37C0279D8C02000955AA /* ToDuncListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EB37BF279D8C02000955AA /* ToDuncListApp.swift */; };
 		52EB37C4279D8C03000955AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52EB37C3279D8C03000955AA /* Assets.xcassets */; };
 		52EB37C7279D8C03000955AA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52EB37C6279D8C03000955AA /* Preview Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		524CC29E27A2121000CB2D39 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		52EB37BC279D8C02000955AA /* ToDuncList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDuncList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52EB37BF279D8C02000955AA /* ToDuncListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDuncListApp.swift; sourceTree = "<group>"; };
 		52EB37C3279D8C03000955AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 		52EB37CE279D91BC000955AA /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				524CC29E27A2121000CB2D39 /* ListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 			files = (
 				52EB37D5279D9507000955AA /* AddView.swift in Sources */,
 				52EB37D7279D99B7000955AA /* ToDunc.swift in Sources */,
+				524CC29F27A2121000CB2D39 /* ListViewModel.swift in Sources */,
 				52EB37D1279D91F0000955AA /* ListView.swift in Sources */,
 				52EB37C0279D8C02000955AA /* ToDuncListApp.swift in Sources */,
 				52EB37D3279D9401000955AA /* ToDuncCell.swift in Sources */,
