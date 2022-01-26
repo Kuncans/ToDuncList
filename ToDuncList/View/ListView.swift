@@ -20,6 +20,8 @@ struct ListView: View {
             ForEach(toDuncs) { toDunc in
                 ToDuncCell(item: toDunc)
             }
+            .onDelete(perform: deleteItem)
+            .onMove(perform: moveItem)
         }
         .listStyle(PlainListStyle())
         .navigationTitle("To Dunc Items ✔")
@@ -27,6 +29,15 @@ struct ListView: View {
                             trailing: NavigationLink("Add", destination: AddView())
         )
     }
+    
+    func deleteItem(indexSet: IndexSet) {
+        toDuncs.remove(atOffsets: indexSet)
+    }
+    
+    func moveItem(from: IndexSet, to: Int) {
+        toDuncs.move(fromOffsets: from, toOffset: to)
+    }
+    
 }
 
 struct ListView_Previews: PreviewProvider {
