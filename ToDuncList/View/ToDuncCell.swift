@@ -15,14 +15,14 @@ struct ToDuncCell: View {
         HStack {
             Image(systemName: item.isCompleted ? "checkmark.circle" : "circle")
                 .foregroundColor(item.isCompleted ? .green : .red)
-            withAnimation(.easeInOut(duration: 0.8)) {
+            withAnimation(.easeInOut(duration: 0.6)) {
             Text(item.title)
                 .strikethrough(item.isCompleted, color: Color.black)
             }
             Spacer()
         }
         .font(.title3)
-        .padding(.vertical, 8)
+        .padding(.vertical, 12)
     }
 }
 

@@ -12,20 +12,26 @@ struct ListView: View {
     @EnvironmentObject var listViewModel: ListViewModel
     
     var body: some View {
-        
-        List {
-            ForEach(listViewModel.toDuncs) { toDunc in
-                ToDuncCell(item: toDunc)
-                    .onTapGesture {
-                        withAnimation(.easeInOut(duration: 0.8)) {
-                            listViewModel.updateItem(toDunc: toDunc)
-                        }
+        ZStack {
+            if listViewModel.toDuncs.isEmpty {
+                NoToDuncsView()
+                    .transition(AnyTransition.opacity.animation(.easeIn))
+            } else {
+                List {
+                    ForEach(listViewModel.toDuncs) { toDunc in
+                        ToDuncCell(item: toDunc)
+                            .onTapGesture {
+                                withAnimation(.easeInOut(duration: 0.6)) {
+                                    listViewModel.updateItem(toDunc: toDunc)
+                                }
+                            }
                     }
+                    .onDelete(perform: listViewModel.deleteItem)
+                    .onMove(perform: listViewModel.moveItem)
+                }
+                .listStyle(PlainListStyle())
             }
-            .onDelete(perform: listViewModel.deleteItem)
-            .onMove(perform: listViewModel.moveItem)
         }
-        .listStyle(PlainListStyle())
         .navigationTitle("To Dunc Items ✔")
         .navigationBarItems(leading: EditButton(),
                             trailing: NavigationLink("Add", destination: AddView())

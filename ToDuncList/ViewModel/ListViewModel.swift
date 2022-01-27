@@ -9,19 +9,25 @@ import Foundation
 
 final class ListViewModel: ObservableObject {
     
-    @Published var toDuncs: [ToDunc] = []
+    @Published var toDuncs: [ToDunc] = [] {
+        didSet {
+            saveItems()
+        }
+    }
+    
+    let itemsKey: String = "toDuncs_list"
     
     init() {
         getItems()
     }
     
     func getItems () {
-        let newDuncs = [
-            ToDunc(title: "Get out of bed", isCompleted: false),
-            ToDunc(title: "Eat 142 pineapples", isCompleted: true),
-            ToDunc(title: "Win village simulator 2048", isCompleted:false)
-        ]
-        toDuncs.append(contentsOf: newDuncs)
+        guard
+            let data = UserDefaults.standard.data(forKey: itemsKey),
+            let savedItems = try? JSONDecoder().decode([ToDunc].self, from: data)
+        else { return }
+        
+        self.toDuncs = savedItems
     }
     
     func deleteItem(indexSet: IndexSet) {
@@ -41,7 +47,12 @@ final class ListViewModel: ObservableObject {
         if let index = toDuncs.firstIndex(where: { $0.id == toDunc.id }) {
             toDuncs[index] = toDunc.updateCompletion()
         }
-        
+    }
+    
+    func saveItems() {
+        if let encodedData = try? JSONEncoder().encode(toDuncs) {
+            UserDefaults.standard.set(encodedData, forKey: itemsKey)
+        }
     }
 
 }
