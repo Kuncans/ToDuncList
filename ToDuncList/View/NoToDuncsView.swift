@@ -37,6 +37,7 @@ struct NoToDuncsView: View {
                 .scaleEffect(animate ? 1.2 : 1.0)
                 .offset(y: animate ? -7 : 0)
             }
+            .frame(maxWidth: 350)
             .multilineTextAlignment(.center)
             .padding(40)
             .onAppear(perform: addAnimation)

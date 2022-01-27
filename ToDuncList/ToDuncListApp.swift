@@ -16,7 +16,8 @@ struct ToDuncListApp: App {
         WindowGroup {
             NavigationView {
                 ListView()
-            }.environmentObject(listViewModel)
+            }
+            .environmentObject(listViewModel)
             .navigationViewStyle(.stack)
         }
     }

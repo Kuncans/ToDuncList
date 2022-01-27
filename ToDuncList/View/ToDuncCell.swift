@@ -17,7 +17,7 @@ struct ToDuncCell: View {
                 .foregroundColor(item.isCompleted ? .green : .red)
             withAnimation(.easeInOut(duration: 0.6)) {
             Text(item.title)
-                .strikethrough(item.isCompleted, color: Color.black)
+                    .strikethrough(item.isCompleted, color: Color.primary)
             }
             Spacer()
         }
