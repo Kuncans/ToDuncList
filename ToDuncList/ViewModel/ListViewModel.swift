@@ -32,5 +32,16 @@ final class ListViewModel: ObservableObject {
         toDuncs.move(fromOffsets: from, toOffset: to)
     }
     
+    func addItem(title: String) {
+        let newItem = ToDunc(title: title, isCompleted: false)
+        toDuncs.append(newItem)
+    }
     
+    func updateItem(toDunc: ToDunc) {
+        if let index = toDuncs.firstIndex(where: { $0.id == toDunc.id }) {
+            toDuncs[index] = toDunc.updateCompletion()
+        }
+        
+    }
+
 }

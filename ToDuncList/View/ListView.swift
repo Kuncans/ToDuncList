@@ -16,6 +16,11 @@ struct ListView: View {
         List {
             ForEach(listViewModel.toDuncs) { toDunc in
                 ToDuncCell(item: toDunc)
+                    .onTapGesture {
+                        withAnimation(.easeInOut(duration: 0.8)) {
+                            listViewModel.updateItem(toDunc: toDunc)
+                        }
+                    }
             }
             .onDelete(perform: listViewModel.deleteItem)
             .onMove(perform: listViewModel.moveItem)

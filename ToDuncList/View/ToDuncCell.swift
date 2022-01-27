@@ -15,7 +15,10 @@ struct ToDuncCell: View {
         HStack {
             Image(systemName: item.isCompleted ? "checkmark.circle" : "circle")
                 .foregroundColor(item.isCompleted ? .green : .red)
+            withAnimation(.easeInOut(duration: 0.8)) {
             Text(item.title)
+                .strikethrough(item.isCompleted, color: Color.black)
+            }
             Spacer()
         }
         .font(.title3)
